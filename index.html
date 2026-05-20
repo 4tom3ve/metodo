@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGC Do Zero ao Contrato — Evelyn Oliveira @4tom3ve</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --rose: #D4607A;
+  --rose-bright: #E07090;
+  --rose-light: #F2A0B5;
+  --rose-glow: rgba(212,96,122,0.18);
+  --rose-pale: #FFF0F3;
+  --gold: #B8885A;
+  --gold-soft: #D4A97A;
+  --bg: #FDFBF9;
+  --bg2: #FFF8F6;
+  --bg3: #FEF2F4;
+  --bg-mid: #F9EEF0;
+  --dark: #1A0A0E;
+  --text: #2A1218;
+  --text2: #6B3D4A;
+  --muted: #A08090;
+  --border: rgba(212,96,122,0.13);
+  --border-dark: rgba(212,96,122,0.22);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Subtle noise */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+section { position: relative; z-index: 1; }
+.container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+/* LANG TOGGLE OVERLAY */
+#lang-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(253,251,249,0.97);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#lang-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.overlay-emoji {
+  font-size: 48px;
+  animation: spinIn 0.6s ease;
+}
+@keyframes spinIn {
+  from { transform: rotate(-20deg) scale(0.7); opacity: 0; }
+  to   { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+.overlay-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 5vw, 38px);
+  font-style: italic;
+  color: var(--rose);
+  text-align: center;
+  animation: fadeSlide 0.5s 0.15s both;
+}
+.overlay-sub {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  animation: fadeSlide 0.5s 0.3s both;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.overlay-bar {
+  width: 200px; height: 3px;
+  background: var(--rose-pale);
+  border-radius: 99px;
+  overflow: hidden;
+  animation: fadeSlide 0.5s 0.4s both;
+}
+.overlay-bar-fill {
+  height: 100%;
+  background: var(--rose);
+  border-radius: 99px;
+  animation: fillBar 1.8s 0.5s ease forwards;
+  width: 0;
+}
+@keyframes fillBar { to { width: 100%; } }
+
+/* STICKY BAR */
+.sticky-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(253,251,249,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sticky-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sticky-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+.sticky-handle {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--rose);
+  letter-spacing: 0.04em;
+}
+
+.sticky-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-toggle {
+  display: flex;
+  background: var(--rose-pale);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 11px;
+}
+.lang-btn {
+  padding: 6px 13px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.lang-btn.active {
+  background: var(--rose);
+  color: white;
+  border-radius: 20px;
+}
+
+.sticky-cta {
+  background: var(--rose);
+  color: white;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.sticky-cta:hover { background: var(--rose-bright); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(212,96,122,0.10) 0%, rgba(242,160,181,0.05) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--rose-light);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--rose-pale);
+  border: 1px solid rgba(212,96,122,0.2);
+  color: var(--rose);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 7vw, 78px);
+  font-weight: 900;
+  line-height: 1.05;
+  max-width: 780px;
+  margin: 0 auto 20px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--rose);
+  display: block;
+}
+
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--text2);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+
+/* VIDEO */
+.hero-video-wrap {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.hero-video-wrap video {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 8px 48px rgba(212,96,122,0.12);
+  display: block;
+  background: var(--bg2);
+}
+
+/* BUTTONS */
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--rose);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 32px var(--rose-glow);
+  width: 100%;
+  max-width: 380px;
+}
+.btn-primary:hover {
+  background: var(--rose-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 44px rgba(212,96,122,0.3);
+}
+
+.btn-wpp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--text);
+  padding: 16px 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(42,18,24,0.2);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 380px;
+}
+.btn-wpp:hover {
+  border-color: #25D366;
+  color: #25D366;
+  background: rgba(37,211,102,0.05);
+}
+
+.btn-label-small {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 300px;
+}
+
+/* SECTION COMMON */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+  text-align: center;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.section-label::before, .section-label::after {
+  content: '';
+  width: 22px; height: 1px;
+  background: var(--rose-light);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.section-body {
+  font-size: 15px;
+  color: var(--text2);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 48px;
+  line-height: 1.85;
+}
+
+/* ABOUT EVE TOP (authority image) */
+.eve-authority {
+  padding: 80px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eve-authority-img {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 3px solid var(--rose-light);
+  box-shadow: 0 4px 32px var(--rose-glow);
+}
+.eve-authority-name {
+  margin-top: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--rose);
+}
+
+/* MEDIA GALLERY */
+.midia {
+  padding: 88px 0;
+  border-top: 1px solid var(--border);
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+.media-grid img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.media-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--rose-glow);
+}
+/* 7 images: first one spans 2 rows */
+.media-grid img:first-child {
+  grid-row: span 1;
+}
+/* Make it 2 rows of comfortable layout */
+
+/* PROBLEMA */
+.problema {
+  padding: 88px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.problema-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.prob-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.prob-card:hover {
+  box-shadow: 0 8px 32px var(--rose-glow);
+  transform: translateY(-2px);
+}
+
+.prob-emoji { font-size: 26px; margin-bottom: 12px; display: block; }
+
+.prob-card p {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+/* APRENDE */
+.aprende {
+  padding: 88px 0;
+  border-top: 1px solid var(--border);
+}
+
+.aprende-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.aprende-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.aprende-item:last-child { border-bottom: none; }
+
+.aprende-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--rose);
+  padding-top: 3px;
+  letter-spacing: 0.05em;
+}
+
+.aprende-content h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.aprende-content p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* PARA QUEM */
+.paraquem { padding: 88px 0; background: var(--bg2); }
+
+.paraquem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pq-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+.pq-card:hover { box-shadow: 0 4px 20px var(--rose-glow); }
+
+.pq-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rose);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.pq-card p {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* SOBRE EVE */
+.sobre {
+  padding: 88px 0;
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.sobre-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 52px;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.sobre-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sobre-avatar {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(212,96,122,0.25);
+  box-shadow: 0 4px 32px var(--rose-glow);
+}
+.sobre-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.sobre-handle {
+  font-size: 12px;
+  color: var(--rose);
+  letter-spacing: 0.06em;
+}
+
+.sobre-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.sobre-text p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+.sobre-text p strong { color: var(--text); font-weight: 500; }
+
+/* CONFIANÇA */
+.confianca {
+  padding: 88px 0;
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.confianca-box {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--rose-pale);
+  border: 1px solid rgba(212,96,122,0.2);
+  border-radius: 16px;
+  padding: 44px 40px;
+  text-align: center;
+}
+
+.confianca-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: var(--rose);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.confianca-box p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.9;
+  margin-bottom: 12px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.confianca-box p strong { color: var(--text); font-weight: 500; }
+
+.trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--rose);
+  background: white;
+  border: 1px solid rgba(212,96,122,0.22);
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* COMPRA */
+.compra {
+  padding: 100px 0 80px;
+  text-align: center;
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+}
+
+.compra-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(212,96,122,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.price-box {
+  max-width: 440px;
+  margin: 0 auto 40px;
+  background: white;
+  border: 1px solid rgba(212,96,122,0.2);
+  border-radius: 20px;
+  padding: 44px 36px;
+  position: relative;
+  box-shadow: 0 8px 48px var(--rose-glow);
+}
+
+.price-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--rose);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.price-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.price-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.price-value { margin-bottom: 28px; }
+
+.price-from {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.price-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--rose);
+  line-height: 1;
+}
+.price-main sup {
+  font-size: 22px;
+  vertical-align: super;
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+.price-desc {
+  font-size: 12px;
+  color: var(--gold);
+  margin-top: 6px;
+}
+
+.price-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.inc-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  color: var(--text2);
+}
+.inc-check { color: var(--rose); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
+
+.compra-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+.compra-divider span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.compra-divider::before, .compra-divider::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--border);
+}
+
+.wpp-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.75;
+}
+
+.guarantee-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* FAQ */
+.faq {
+  padding: 88px 0;
+  background: white;
+  border-top: 1px solid var(--border);
+}
+
+.faq-list {
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+.faq-q { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+.faq-a { font-size: 13.5px; color: var(--text2); line-height: 1.85; }
+.faq-a strong { color: var(--text); font-weight: 500; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--bg2);
+}
+footer strong { color: var(--rose); font-weight: 500; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-badge    { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+.hero h1       { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; }
+.hero-sub      { animation: fadeUp 0.7s ease both; animation-delay: 0.32s; }
+.hero-video-wrap { animation: fadeUp 0.7s ease both; animation-delay: 0.44s; }
+.hero-cta-group  { animation: fadeUp 0.7s ease both; animation-delay: 0.56s; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .sticky-bar { padding: 10px 14px; }
+  .sticky-handle { display: none; }
+  .hero { padding: 100px 20px 56px; }
+  .sobre-inner { grid-template-columns: 1fr; text-align: center; }
+  .sobre-visual { margin: 0 auto; }
+  .paraquem-grid { grid-template-columns: 1fr; }
+  .confianca-box { padding: 32px 20px; }
+  .price-box { padding: 32px 20px; }
+  .price-main { font-size: 44px; }
+  .media-grid { grid-template-columns: repeat(2, 1fr); }
+  .lang-btn { padding: 6px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LANG OVERLAY -->
+<div id="lang-overlay">
+  <span class="overlay-emoji">✨</span>
+  <p class="overlay-text" id="overlay-text">Translating page now...</p>
+  <p class="overlay-sub" id="overlay-sub">switching language</p>
+  <div class="overlay-bar"><div class="overlay-bar-fill" id="overlay-fill"></div></div>
+</div>
+
+<!-- STICKY BAR -->
+<nav class="sticky-bar">
+  <div class="sticky-logo">
+    <img src="/mnt/user-data/uploads/90d6deb7-1ca8-40af-8f33-fc969d501843.png" alt="Eve logo" onerror="this.style.display='none'">
+    <span class="sticky-handle">@4tom3ve</span>
+  </div>
+  <div class="sticky-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('pt')" id="btn-pt">PT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+    <a href="#comprar" class="sticky-cta" data-pt="Quero o guia →" data-en="Get the guide →">Quero o guia →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+
+  <div class="eve-authority">
+    <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779139582/Screenshot_20260515_151934_Drive_w8enak.jpg" alt="Evelyn Oliveira" class="eve-authority-img">
+    <span class="eve-authority-name">Evelyn Oliveira</span>
+  </div>
+
+  <div style="height: 28px;"></div>
+
+  <div class="hero-eyebrow" data-pt="Evelyn Oliveira · @4tom3ve" data-en="Evelyn Oliveira · @4tom3ve">Evelyn Oliveira · @4tom3ve</div>
+  <span class="hero-badge" data-pt="E-book · UGC Creator · Beleza" data-en="E-book · UGC Creator · Beauty">E-book · UGC Creator · Beleza</span>
+
+  <h1>
+    <span data-pt="Do Zero" data-en="From Zero">Do Zero</span>
+    <em data-pt="ao Contrato" data-en="to the Deal">ao Contrato</em>
+  </h1>
+
+  <p class="hero-sub" data-pt="Escrevi isso do jeito que eu gostaria de ter encontrado quando comecei. <strong>Sem precisar de seguidores, câmera profissional ou experiência anterior.</strong>" data-en="I wrote this the way I wish I'd found it when I started. <strong>No followers, no professional camera, no prior experience needed.</strong>">
+    Escrevi isso do jeito que eu gostaria de ter encontrado quando comecei.
+    <strong>Sem precisar de seguidores, câmera profissional ou experiência anterior.</strong>
+  </p>
+
+  <div class="hero-video-wrap">
+    <video controls playsinline poster="">
+      <source src="https://res.cloudinary.com/dcbarseus/video/upload/v1779141918/New_hair_update_fypreels_hairtransformat%C4%B1on_sabrinacarpenter_lu5utl.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="hero-cta-group">
+    <a href="https://pay.hotmart.com/B105879511Y?sck=HOTMART_PRODUCT_PAGE&off=9yrzldqn&hotfeature=32" target="_blank" class="btn-primary" data-pt="Quero o e-book agora" data-en="Get the e-book now">
+      Quero o e-book agora
+    </a>
+    <a href="https://wa.me/5583996483930?text=Oi%20Eve!%20Vi%20a%20p%C3%A1gina%20do%20ebook%20e%20quero%20saber%20mais%20antes%20de%20comprar%20%F0%9F%92%96" target="_blank" class="btn-wpp" data-pt="💬 Falar com a Eve antes de comprar" data-en="💬 Chat with Eve before buying">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Eve antes de comprar
+    </a>
+    <span class="btn-label-small" data-pt="Tem dúvida? A Eve responde pessoalmente no WhatsApp." data-en="Any questions? Eve replies personally on WhatsApp.">Tem dúvida? A Eve responde pessoalmente no WhatsApp.</span>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="midia">
+  <div class="container">
+    <div class="section-label" data-pt="Bastidores e exemplos reais" data-en="Behind the scenes and real examples">Bastidores e exemplos reais</div>
+    <h2 class="section-title" data-pt="Como é o conteúdo na prática" data-en="What the content looks like in practice">Como é o conteúdo na prática</h2>
+    <p class="section-body" data-pt="Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios." data-en="Not a studio ad. It's a real review, filmed the right way, the kind brands actually use in their campaigns.">Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios.</p>
+
+    <div class="media-grid">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140391/01_mqjqma.png" alt="Eve UGC 1">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140394/02_epu9qa.png" alt="Eve UGC 2">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140406/03_slixnb.png" alt="Eve UGC 3">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140404/4.2_btuepl.png" alt="Eve UGC 4">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140408/05_nrgajk.png" alt="Eve UGC 5">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140418/06_jflsmz.png" alt="Eve UGC 6">
+      <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140401/07_g4n5x0.png" alt="Eve UGC 7">
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <div class="container">
+    <div class="section-label" data-pt="Você se identifica?" data-en="Sound familiar?">Você se identifica?</div>
+    <h2 class="section-title" data-pt="Parece familiar alguma disso?" data-en="Does any of this ring a bell?">Parece familiar alguma disso?</h2>
+
+    <div class="problema-grid">
+      <div class="prob-card">
+        <span class="prob-emoji">📷</span>
+        <p data-pt="Quer criar conteúdo pra marcas mas não sabe nem por onde começar" data-en="You want to create content for brands but have no idea where to start">Quer criar conteúdo pra marcas mas não sabe nem por onde começar</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-emoji">👥</span>
+        <p data-pt="Acha que precisa ter muitos seguidores pra ser levada a sério" data-en="You think you need a big following to be taken seriously">Acha que precisa ter muitos seguidores pra ser levada a sério</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-emoji">💬</span>
+        <p data-pt="Já mandou DM pra marca e não recebeu resposta nenhuma" data-en="You've DMed brands before and heard nothing back">Já mandou DM pra marca e não recebeu resposta nenhuma</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-emoji">🎥</span>
+        <p data-pt="Pensa que precisa de equipamento profissional pra começar" data-en="You think you need professional equipment to get started">Pensa que precisa de equipamento profissional pra começar</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-emoji">💰</span>
+        <p data-pt="Não sabe quanto cobrar e tem medo de errar o preço" data-en="You don't know what to charge and are scared of getting it wrong">Não sabe quanto cobrar e tem medo de errar o preço</p>
+      </div>
+      <div class="prob-card">
+        <span class="prob-emoji">🌀</span>
+        <p data-pt="Pesquisa em todo lugar mas não consegue organizar na cabeça" data-en="You research everywhere but can't put the pieces together">Pesquisa em todo lugar mas não consegue organizar na cabeça</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APRENDE -->
+<section class="aprende">
+  <div class="container">
+    <div class="section-label" data-pt="Conteúdo do e-book" data-en="What's inside">Conteúdo do e-book</div>
+    <h2 class="section-title" data-pt="O que tem dentro" data-en="What's included">O que tem dentro</h2>
+    <p class="section-body" data-pt="Tudo aqui pode ser colocado em prática imediatamente. Sem teoria inútil, sem enrolação." data-en="Everything here is ready to put into practice immediately. No useless theory, no fluff.">Tudo aqui pode ser colocado em prática imediatamente. Sem teoria inútil, sem enrolação.</p>
+
+    <div class="aprende-list">
+      <div class="aprende-item">
+        <span class="aprende-num">01</span>
+        <div class="aprende-content">
+          <h4 data-pt="O que é UGC e por que marcas pagam" data-en="What is UGC and why brands pay for it">O que é UGC e por que marcas pagam</h4>
+          <p data-pt="No UGC o foco é criar conteúdo útil para marcas. Número de seguidores não é a primeira coisa, e esse capítulo explica exatamente o porquê." data-en="In UGC the focus is creating useful content for brands. Follower count is not the first criteria, and this chapter explains exactly why.">No UGC o foco é criar conteúdo útil para marcas. Número de seguidores não é a primeira coisa, e esse capítulo explica exatamente o porquê.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num">02</span>
+        <div class="aprende-content">
+          <h4 data-pt="A mentalidade antes de começar" data-en="The mindset before you start">A mentalidade antes de começar</h4>
+          <p data-pt="Os 3 pilares que separam quem fecha contratos de quem fica esperando: consistência, identidade visual e comunicação clara." data-en="The 3 pillars that separate who closes deals from who keeps waiting: consistency, visual identity, and clear communication.">Os 3 pilares que separam quem fecha contratos de quem fica esperando: consistência, identidade visual e comunicação clara.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num">03</span>
+        <div class="aprende-content">
+          <h4 data-pt="Equipamento mínimo que funciona" data-en="Minimal equipment that actually works">Equipamento mínimo que funciona</h4>
+          <p data-pt="Setup real com menos de R$300. O que comprar, o que você já tem, e as configurações de câmera que fazem diferença." data-en="Real setup for under R$300. What to buy, what you already have, and the camera settings that make a difference.">Setup real com menos de R$300. O que comprar, o que você já tem, e as configurações de câmera que fazem diferença.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num">04</span>
+        <div class="aprende-content">
+          <h4 data-pt="Como montar portfólio do zero" data-en="How to build a portfolio from scratch">Como montar portfólio do zero</h4>
+          <p data-pt="Conteúdo spec: como criar portfólio sem ter cliente nenhuma ainda. Formatos mais pedidos por marcas de beleza e como organizar tudo." data-en="Spec content: how to create a portfolio without any clients yet. The most requested formats by beauty brands and how to organize everything.">Conteúdo spec: como criar portfólio sem ter cliente nenhuma ainda. Formatos mais pedidos por marcas de beleza e como organizar tudo.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num">05</span>
+        <div class="aprende-content">
+          <h4 data-pt="Como abordar marcas e fechar contrato" data-en="How to reach out to brands and close the deal">Como abordar marcas e fechar contrato</h4>
+          <p data-pt="Onde encontrar marcas, como estruturar o primeiro contato e o que escrever pra receber uma resposta de verdade." data-en="Where to find brands, how to structure your first message, and what to write to actually get a reply.">Onde encontrar marcas, como estruturar o primeiro contato e o que escrever pra receber uma resposta de verdade.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num">06</span>
+        <div class="aprende-content">
+          <h4 data-pt="Precificação e negociação" data-en="Pricing and negotiation">Precificação e negociação</h4>
+          <p data-pt="Tabela de referência real para o Brasil. Como negociar sem sair desvalorizada. Quando e como cobrar direito de uso nos anúncios." data-en="Real reference table for Brazil. How to negotiate without undervaluing yourself. When and how to charge usage rights for ads.">Tabela de referência real para o Brasil. Como negociar sem sair desvalorizada. Quando e como cobrar direito de uso nos anúncios.</p>
+        </div>
+      </div>
+      <div class="aprende-item">
+        <span class="aprende-num" style="color: var(--gold); font-size: 18px;">★</span>
+        <div class="aprende-content">
+          <h4 data-pt="Bônus: templates de e-mail e DM prontos" data-en="Bonus: ready-to-use email and DM templates">Bônus: templates de e-mail e DM prontos</h4>
+          <p data-pt="Dois textos personalizáveis pra abordar marcas, um por e-mail frio e um por DM. É só adaptar com o nome da marca e enviar." data-en="Two customizable messages for reaching brands, one cold email and one DM. Just swap in the brand name and hit send.">Dois textos personalizáveis pra abordar marcas, um por e-mail frio e um por DM. É só adaptar com o nome da marca e enviar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="paraquem">
+  <div class="container">
+    <div class="section-label" data-pt="Perfil ideal" data-en="Perfect for you if...">Perfil ideal</div>
+    <h2 class="section-title" data-pt="Esse e-book é pra você se..." data-en="This e-book is for you if...">Esse e-book é pra você se...</h2>
+
+    <div class="paraquem-grid">
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Você ama beleza, skincare e cosméticos e quer transformar isso em renda" data-en="You love beauty, skincare and cosmetics and want to turn that into income">Você ama beleza, skincare e cosméticos e quer transformar isso em renda</p>
+      </div>
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Tem um celular decente e vontade de aprender, e nada mais precisa agora" data-en="You have a decent phone and the will to learn, and that's all you need right now">Tem um celular decente e vontade de aprender, e nada mais precisa agora</p>
+      </div>
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Está começando do zero e não quer gastar tempo com informação jogada" data-en="You're starting from scratch and don't want to waste time sifting through scattered info">Está começando do zero e não quer gastar tempo com informação jogada</p>
+      </div>
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Já pesquisou sobre UGC mas não conseguiu montar o passo a passo na cabeça" data-en="You've researched UGC before but couldn't piece together a clear step-by-step">Já pesquisou sobre UGC mas não conseguiu montar o passo a passo na cabeça</p>
+      </div>
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Quer um template pronto pra abordar marcas sem parecer mensagem genérica" data-en="You want a ready-made template to approach brands without sounding generic">Quer um template pronto pra abordar marcas sem parecer mensagem genérica</p>
+      </div>
+      <div class="pq-card">
+        <span class="pq-dot"></span>
+        <p data-pt="Prefere aprender com quem está no processo, não com quem vende sonho" data-en="You'd rather learn from someone in the process, not someone selling a dream">Prefere aprender com quem está no processo, não com quem vende sonho</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE EVE -->
+<section class="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-visual">
+        <div class="sobre-avatar">
+          <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779139582/Screenshot_20260515_151934_Drive_w8enak.jpg" alt="Evelyn Oliveira">
+        </div>
+        <span class="sobre-handle">@4tom3ve</span>
+      </div>
+
+      <div class="sobre-text">
+        <h3 data-pt="Quem escreveu isso?" data-en="Who wrote this?">Quem escreveu isso?</h3>
+        <p data-pt="Sou a Evelyn, UGC Creator na área de beleza. Não vim de agência, não tenho formação em marketing e <strong>não tinha muitos seguidores quando comecei a entender esse mercado.</strong>" data-en="I'm Evelyn, a UGC Creator in the beauty space. I didn't come from an agency, I don't have a marketing degree, and <strong>I didn't have a big following when I started figuring out this market.</strong>">Sou a Evelyn, UGC Creator na área de beleza. Não vim de agência, não tenho formação em marketing e <strong>não tinha muitos seguidores quando comecei a entender esse mercado.</strong></p>
+        <p data-pt="O que eu fiz foi absorver cada informação que encontrava e organizar. Esse e-book é o que eu gostaria de ter encontrado quando comecei: <strong>uma pessoa real explicando o processo real, sem inflar o resultado.</strong>" data-en="What I did was absorb every bit of information I found and organize it. This e-book is what I wish I'd found when I started: <strong>a real person explaining the real process, without inflating the results.</strong>">O que eu fiz foi absorver cada informação que encontrava e organizar. Esse e-book é o que eu gostaria de ter encontrado quando comecei: <strong>uma pessoa real explicando o processo real, sem inflar o resultado.</strong></p>
+        <p data-pt="Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui." data-en="I'm not here to come across as an expert. I'm here to help you move faster than I did.">Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIANÇA -->
+<section class="confianca">
+  <div class="container">
+    <div class="section-label" data-pt="Transparência" data-en="Transparency">Transparência</div>
+    <h2 class="section-title" data-pt="Como funciona a compra" data-en="How the purchase works">Como funciona a compra</h2>
+
+    <div class="confianca-box">
+      <h3 data-pt="Quero deixar o processo claro" data-en="I want to make the process clear">Quero deixar o processo claro</h3>
+      <p data-pt="A internet tem muito golpe, eu sei disso, você sabe também. Por isso ofereço duas formas de compra: pela Hotmart (plataforma usada por milhões de criadores no Brasil, com pagamento criptografado e nota fiscal) ou pelo meu WhatsApp pessoal, onde você fala comigo diretamente antes de qualquer pagamento." data-en="The internet has a lot of scams, I know that, and so do you. That's why I offer two ways to buy: through Hotmart (a platform used by millions of creators in Brazil, with encrypted payment and invoice) or through my personal WhatsApp, where you talk to me directly before any payment.">A internet tem muito golpe, eu sei disso, você sabe também. Por isso ofereço duas formas de compra: pela Hotmart (plataforma usada por milhões de criadores no Brasil, com pagamento criptografado e nota fiscal) ou pelo meu WhatsApp pessoal, onde você fala comigo diretamente antes de qualquer pagamento.</p>
+      <p data-pt="<strong>Nenhuma opção envolve Pix para desconhecido.</strong> Tudo dentro de plataformas reguladas ou com contato direto e verificável. O produto chega no mesmo momento da confirmação." data-en="<strong>No option involves Pix to a stranger.</strong> Everything is within regulated platforms or with direct, verifiable contact. The product arrives the moment payment is confirmed."><strong>Nenhuma opção envolve Pix para desconhecido.</strong> Tudo dentro de plataformas reguladas ou com contato direto e verificável. O produto chega no mesmo momento da confirmação.</p>
+
+      <div class="trust-pills">
+        <span class="trust-pill" data-pt="Hotmart, plataforma regulada" data-en="Hotmart, regulated platform">Hotmart, plataforma regulada</span>
+        <span class="trust-pill" data-pt="Pagamento criptografado" data-en="Encrypted payment">Pagamento criptografado</span>
+        <span class="trust-pill" data-pt="Nota fiscal emitida" data-en="Invoice included">Nota fiscal emitida</span>
+        <span class="trust-pill" data-pt="Eve responde no WhatsApp" data-en="Eve replies on WhatsApp">Eve responde no WhatsApp</span>
+        <span class="trust-pill" data-pt="PDF entregue na hora" data-en="PDF delivered instantly">PDF entregue na hora</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPRA -->
+<section class="compra" id="comprar">
+  <div class="compra-glow"></div>
+  <div class="container">
+
+    <div class="section-label" data-pt="Duas opções de compra" data-en="Two ways to buy">Duas opções de compra</div>
+    <h2 class="section-title" style="margin-bottom:12px;" data-pt="Pronta pra começar?" data-en="Ready to start?">Pronta pra começar?</h2>
+    <p class="section-body" style="margin-bottom:40px;" data-pt="Nenhuma pegadinha. Você escolhe como prefere." data-en="No tricks. You choose how you prefer.">Nenhuma pegadinha. Você escolhe como prefere.</p>
+
+    <div class="price-box">
+      <span class="price-badge" data-pt="Acesso imediato" data-en="Instant access">Acesso imediato</span>
+
+      <p class="price-title" data-pt="UGC: Do Zero ao Contrato" data-en="UGC: From Zero to the Deal">UGC: Do Zero ao Contrato</p>
+      <p class="price-subtitle" data-pt="E-book completo, PDF, Entrega digital" data-en="Complete e-book, PDF, Digital delivery">E-book completo, PDF, Entrega digital</p>
+
+      <div class="price-value">
+        <p class="price-main"><sup>R$</sup>9<span style="font-size:28px;font-weight:400">,99</span></p>
+        <p class="price-desc" data-pt="Pagamento único, Acesso vitalício" data-en="One-time payment, Lifetime access">Pagamento único, Acesso vitalício</p>
+      </div>
+
+      <div class="price-includes">
+        <div class="inc-item"><span class="inc-check">✦</span><span data-pt="E-book completo com 6 capítulos" data-en="Complete e-book with 6 chapters">E-book completo com 6 capítulos</span></div>
+        <div class="inc-item"><span class="inc-check">✦</span><span data-pt="Template de e-mail frio para marcas" data-en="Cold email template for brands">Template de e-mail frio para marcas</span></div>
+        <div class="inc-item"><span class="inc-check">✦</span><span data-pt="Template de DM para Instagram" data-en="DM template for Instagram">Template de DM para Instagram</span></div>
+        <div class="inc-item"><span class="inc-check">✦</span><span data-pt="Tabela de preços de referência, Brasil 2025" data-en="Reference pricing table, Brazil 2025">Tabela de preços de referência, Brasil 2025</span></div>
+        <div class="inc-item"><span class="inc-check">✦</span><span data-pt="PDF legível em qualquer dispositivo" data-en="PDF readable on any device">PDF legível em qualquer dispositivo</span></div>
+      </div>
+
+      <a href="https://pay.hotmart.com/B105879511Y?sck=HOTMART_PRODUCT_PAGE&off=9yrzldqn&hotfeature=32" target="_blank" class="btn-primary" style="width:100%; max-width:100%; margin-bottom:8px;" data-pt="Comprar agora pela Hotmart" data-en="Buy now via Hotmart">
+        Comprar agora pela Hotmart
+      </a>
+      <p style="font-size:11px; color:var(--muted); text-align:center; margin-bottom:16px;" data-pt="Cartão, Pix ou boleto, Acesso imediato após confirmação" data-en="Credit card, Pix or bank slip, Instant access after confirmation">
+        Cartão, Pix ou boleto, Acesso imediato após confirmação
+      </p>
+
+      <div class="compra-divider"><span data-pt="ou" data-en="or">ou</span></div>
+
+      <a href="https://wa.me/5583996483930?text=Oi%20Eve!%20%F0%9F%92%96%20Vi%20sua%20p%C3%A1gina%20e%20quero%20comprar%20o%20ebook%20%22UGC%20do%20Zero%20ao%20Contrato%22.%20Como%20fa%C3%A7o%3F" target="_blank" class="btn-wpp" style="width:100%; max-width:100%;" data-pt="Comprar via WhatsApp com a Eve" data-en="Buy via WhatsApp with Eve">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Comprar via WhatsApp com a Eve
+      </a>
+      <p class="wpp-note" data-pt="Prefere conversar antes? Me chama no WhatsApp, eu respondo pessoalmente, explico como funciona a entrega e tiro qualquer dúvida. Sem pressão, sem robô." data-en="Prefer to talk first? Message me on WhatsApp, I reply personally, explain how delivery works, and answer any question. No pressure, no bots.">
+        Prefere conversar antes? Me chama no WhatsApp, eu respondo pessoalmente, explico como funciona a entrega e tiro qualquer dúvida. Sem pressão, sem robô.
+      </p>
+
+      <div class="guarantee-strip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-pt="Produto entregue na hora, Compra verificável, Sem Pix para desconhecido" data-en="Instant delivery, Verified purchase, No Pix to strangers">Produto entregue na hora, Compra verificável, Sem Pix para desconhecido</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label" data-pt="Dúvidas frequentes" data-en="Common questions">Dúvidas frequentes</div>
+    <h2 class="section-title" data-pt="Perguntas que eu recebo" data-en="Questions I get">Perguntas que eu recebo</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q" data-pt="Como recebo o e-book depois da compra?" data-en="How do I receive the e-book after purchase?">Como recebo o e-book depois da compra?</p>
+        <p class="faq-a" data-pt="Se comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong>" data-en="If you buy through Hotmart, access arrives in your email as soon as payment is confirmed, it's automatic. If you buy via WhatsApp, I'll send the file directly in the chat. <strong>Fast and simple.</strong>">Se comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong></p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q" data-pt="É seguro pagar pela Hotmart?" data-en="Is it safe to pay through Hotmart?">É seguro pagar pela Hotmart?</p>
+        <p class="faq-a" data-pt="Sim. A Hotmart é a maior plataforma de infoprodutos do Brasil. Aceita cartão, Pix e boleto, emite nota fiscal e protege o comprador. <strong>Seus dados ficam dentro da plataforma, não chegam pra mim.</strong>" data-en="Yes. Hotmart is the largest digital product platform in Brazil. It accepts credit card, Pix, and bank slip, issues invoices, and protects buyers. <strong>Your data stays within the platform, it never reaches me.</strong>">Sim. A Hotmart é a maior plataforma de infoprodutos do Brasil. Aceita cartão, Pix e boleto, emite nota fiscal e protege o comprador. <strong>Seus dados ficam dentro da plataforma, não chegam pra mim.</strong></p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q" data-pt="Prefiro falar com a Eve antes de comprar. Posso?" data-en="I'd prefer to talk to Eve before buying. Can I?">Prefiro falar com a Eve antes de comprar. Posso?</p>
+        <p class="faq-a" data-pt="Claro. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong>" data-en="Of course. Just click the WhatsApp button. I'll reply personally, explain everything about the content, and answer any questions, with zero obligation to buy. <strong>No pressure.</strong>">Claro. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong></p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q" data-pt="Preciso ter experiência com criação de conteúdo?" data-en="Do I need experience with content creation?">Preciso ter experiência com criação de conteúdo?</p>
+        <p class="faq-a" data-pt="Não. O e-book foi escrito pra quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong>" data-en="No. The e-book was written for people starting from zero. If you've never filmed a video for a brand, <strong>this is the starting point.</strong>">Não. O e-book foi escrito pra quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong></p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q" data-pt="E se eu não tiver muitos seguidores?" data-en="What if I don't have many followers?">E se eu não tiver muitos seguidores?</p>
+        <p class="faq-a" data-pt="No UGC o foco é criar conteúdo útil para as marcas. Seguidores não são o critério principal, e o primeiro capítulo do e-book explica exatamente como isso funciona." data-en="In UGC the focus is on creating useful content for brands. Follower count is not the main criteria, and the first chapter of the e-book explains exactly how that works.">No UGC o foco é criar conteúdo útil para as marcas. Seguidores não são o critério principal, e o primeiro capítulo do e-book explica exatamente como isso funciona.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q" data-pt="O conteúdo é só para beleza?" data-en="Is the content only for the beauty niche?">O conteúdo é só para beleza?</p>
+        <p class="faq-a" data-pt="O foco é beleza e cosméticos, que é o nicho da Eve. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza." data-en="The focus is beauty and cosmetics, which is Eve's niche. But the UGC principles (portfolio, outreach, pricing) <strong>work for other niches too.</strong> All examples and references are from the beauty space.">O foco é beleza e cosméticos, que é o nicho da Eve. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px;">
+    <strong>Evelyn Oliveira</strong> · UGC Creator · Beauty &amp; Lifestyle
+  </p>
+  <p>@4tom3ve · atom.3ve8@gmail.com · 4tom3ve.github.io/ugc</p>
+  <p style="margin-top:12px; font-size:11px; opacity:0.5;">
+    © 2026 Evelyn Oliveira · Todos os direitos reservados · Produto digital entregue via Hotmart ou WhatsApp · Nenhum Pix enviado para pessoa física não verificada
+  </p>
+</footer>
+
+<script>
+// ── LANGUAGE SYSTEM ──────────────────────────────────────────────
+let currentLang = 'pt';
+
+function setLang(lang) {
+  if (lang === currentLang) return;
+
+  // Show overlay
+  const overlay = document.getElementById('lang-overlay');
+  const overlayText = document.getElementById('overlay-text');
+  const overlaySub = document.getElementById('overlay-sub');
+  const fill = document.getElementById('overlay-fill');
+
+  if (lang === 'en') {
+    overlayText.textContent = 'Translating page now...';
+    overlaySub.textContent = 'switching to English ✨';
+  } else {
+    overlayText.textContent = 'Traduzindo a página agora...';
+    overlaySub.textContent = 'voltando para Português ✨';
+  }
+
+  // Reset bar animation
+  fill.style.animation = 'none';
+  fill.offsetHeight; // reflow
+  fill.style.animation = 'fillBar 1.8s 0.5s ease forwards';
+
+  overlay.classList.add('show');
+
+  setTimeout(() => {
+    applyLang(lang);
+    currentLang = lang;
+
+    // Toggle buttons
+    document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    overlay.classList.remove('show');
+  }, 2000);
+}
+
+function applyLang(lang) {
+  // All elements with data-pt / data-en
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+
+  // html lang
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+  // Page title
+  document.title = lang === 'pt'
+    ? 'UGC Do Zero ao Contrato — Evelyn Oliveira @4tom3ve'
+    : 'UGC From Zero to the Deal — Evelyn Oliveira @4tom3ve';
+}
+</script>
+</body>
+</html>
