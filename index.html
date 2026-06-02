@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
   --rose: #D4607A;
   --rose-bright: #E07090;
@@ -27,9 +26,7 @@
   --border: rgba(212,96,122,0.13);
   --border-dark: rgba(212,96,122,0.22);
 }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--bg);
   color: var(--text);
@@ -38,7 +35,6 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
 body::before {
   content: '';
   position: fixed;
@@ -47,7 +43,6 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-
 section { position: relative; z-index: 1; }
 .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
 
@@ -67,14 +62,8 @@ section { position: relative; z-index: 1; }
   pointer-events: none;
   transition: opacity 0.3s;
 }
-#lang-overlay.show {
-  opacity: 1;
-  pointer-events: all;
-}
-.overlay-emoji {
-  font-size: 48px;
-  animation: spinIn 0.6s ease;
-}
+#lang-overlay.show { opacity: 1; pointer-events: all; }
+.overlay-emoji { font-size: 48px; animation: spinIn 0.6s ease; }
 @keyframes spinIn {
   from { transform: rotate(-20deg) scale(0.7); opacity: 0; }
   to   { transform: rotate(0deg) scale(1); opacity: 1; }
@@ -87,30 +76,13 @@ section { position: relative; z-index: 1; }
   text-align: center;
   animation: fadeSlide 0.5s 0.15s both;
 }
-.overlay-sub {
-  font-size: 13px;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  animation: fadeSlide 0.5s 0.3s both;
-}
+.overlay-sub { font-size: 13px; color: var(--muted); letter-spacing: 0.08em; animation: fadeSlide 0.5s 0.3s both; }
 @keyframes fadeSlide {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.overlay-bar {
-  width: 200px; height: 3px;
-  background: var(--rose-pale);
-  border-radius: 99px;
-  overflow: hidden;
-  animation: fadeSlide 0.5s 0.4s both;
-}
-.overlay-bar-fill {
-  height: 100%;
-  background: var(--rose);
-  border-radius: 99px;
-  animation: fillBar 1.8s 0.5s ease forwards;
-  width: 0;
-}
+.overlay-bar { width: 200px; height: 3px; background: var(--rose-pale); border-radius: 99px; overflow: hidden; animation: fadeSlide 0.5s 0.4s both; }
+.overlay-bar-fill { height: 100%; background: var(--rose); border-radius: 99px; animation: fillBar 1.8s 0.5s ease forwards; width: 0; }
 @keyframes fillBar { to { width: 100%; } }
 
 /* STICKY BAR */
@@ -127,70 +99,14 @@ section { position: relative; z-index: 1; }
   justify-content: space-between;
   gap: 12px;
 }
-
-.sticky-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.sticky-logo img {
-  height: 32px;
-  width: auto;
-  object-fit: contain;
-}
-.sticky-handle {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-style: italic;
-  color: var(--rose);
-  letter-spacing: 0.04em;
-}
-
-.sticky-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lang-toggle {
-  display: flex;
-  background: var(--rose-pale);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  font-size: 11px;
-}
-.lang-btn {
-  padding: 6px 13px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  background: transparent;
-  border: none;
-  transition: all 0.2s;
-  font-family: 'DM Sans', sans-serif;
-}
-.lang-btn.active {
-  background: var(--rose);
-  color: white;
-  border-radius: 20px;
-}
-
-.sticky-cta {
-  background: var(--rose);
-  color: white;
-  padding: 9px 18px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.2s;
-}
+.sticky-logo { display: flex; align-items: center; gap: 10px; }
+.sticky-logo img { height: 32px; width: auto; object-fit: contain; }
+.sticky-handle { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--rose); letter-spacing: 0.04em; }
+.sticky-right { display: flex; align-items: center; gap: 10px; }
+.lang-toggle { display: flex; background: var(--rose-pale); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; font-size: 11px; }
+.lang-btn { padding: 6px 13px; cursor: pointer; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--muted); background: transparent; border: none; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+.lang-btn.active { background: var(--rose); color: white; border-radius: 20px; }
+.sticky-cta { background: var(--rose); color: white; padding: 9px 18px; border-radius: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
 .sticky-cta:hover { background: var(--rose-bright); }
 
 /* HERO */
@@ -205,646 +121,118 @@ section { position: relative; z-index: 1; }
   position: relative;
   overflow: hidden;
 }
-
-.hero-glow {
-  position: absolute;
-  top: 40%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(212,96,122,0.10) 0%, rgba(242,160,181,0.05) 40%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.hero-eyebrow::before, .hero-eyebrow::after {
-  content: '';
-  width: 28px; height: 1px;
-  background: var(--rose-light);
-}
-
-.hero-badge {
-  display: inline-block;
-  background: var(--rose-pale);
-  border: 1px solid rgba(212,96,122,0.2);
-  color: var(--rose);
-  padding: 6px 18px;
-  border-radius: 20px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 7vw, 78px);
-  font-weight: 900;
-  line-height: 1.05;
-  max-width: 780px;
-  margin: 0 auto 20px;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--rose);
-  display: block;
-}
-
-.hero-sub {
-  font-size: clamp(15px, 2.5vw, 18px);
-  color: var(--text2);
-  max-width: 520px;
-  margin: 0 auto 36px;
-  font-weight: 300;
-  line-height: 1.8;
-}
+.hero-glow { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(212,96,122,0.10) 0%, rgba(242,160,181,0.05) 40%, transparent 70%); pointer-events: none; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--rose-light); }
+.hero-badge { display: inline-block; background: var(--rose-pale); border: 1px solid rgba(212,96,122,0.2); color: var(--rose); padding: 6px 18px; border-radius: 20px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 7vw, 78px); font-weight: 900; line-height: 1.05; max-width: 780px; margin: 0 auto 20px; letter-spacing: -0.02em; color: var(--text); }
+.hero h1 em { font-style: italic; color: var(--rose); display: block; }
+.hero-sub { font-size: clamp(15px, 2.5vw, 18px); color: var(--text2); max-width: 520px; margin: 0 auto 36px; font-weight: 300; line-height: 1.8; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
-
-.hero-video-wrap {
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto 40px;
-  position: relative;
-}
-
-.hero-video-wrap video {
-  width: 100%;
-  border-radius: 16px;
-  border: 1px solid var(--border-dark);
-  box-shadow: 0 8px 48px rgba(212,96,122,0.12);
-  display: block;
-  background: var(--bg2);
-}
+.hero-video-wrap { width: 100%; max-width: 560px; margin: 0 auto 40px; position: relative; }
+.hero-video-wrap video { width: 100%; border-radius: 16px; border: 1px solid var(--border-dark); box-shadow: 0 8px 48px rgba(212,96,122,0.12); display: block; background: var(--bg2); }
 
 /* BUTTONS */
-.hero-cta-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: var(--rose);
-  color: white;
-  padding: 18px 40px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 32px var(--rose-glow);
-  width: 100%;
-  max-width: 380px;
-}
-.btn-primary:hover {
-  background: var(--rose-bright);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 44px rgba(212,96,122,0.3);
-}
-
-.btn-wpp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: transparent;
-  color: var(--text);
-  padding: 16px 40px;
-  border-radius: 8px;
-  border: 1px solid rgba(42,18,24,0.2);
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: all 0.2s;
-  width: 100%;
-  max-width: 380px;
-}
-.btn-wpp:hover {
-  border-color: #25D366;
-  color: #25D366;
-  background: rgba(37,211,102,0.05);
-}
-
-.btn-label-small {
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  max-width: 300px;
-}
+.hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--rose); color: white; padding: 18px 40px; border-radius: 8px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 32px var(--rose-glow); width: 100%; max-width: 380px; }
+.btn-primary:hover { background: var(--rose-bright); transform: translateY(-2px); box-shadow: 0 8px 44px rgba(212,96,122,0.3); }
+.btn-wpp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: transparent; color: var(--text); padding: 16px 40px; border-radius: 8px; border: 1px solid rgba(42,18,24,0.2); font-size: 14px; font-weight: 400; text-decoration: none; transition: all 0.2s; width: 100%; max-width: 380px; }
+.btn-wpp:hover { border-color: #25D366; color: #25D366; background: rgba(37,211,102,0.05); }
+.btn-label-small { font-size: 12px; color: var(--muted); text-align: center; max-width: 300px; }
 
 /* SECTION COMMON */
-.section-label {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--rose);
-  text-align: center;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.section-label::before, .section-label::after {
-  content: '';
-  width: 22px; height: 1px;
-  background: var(--rose-light);
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 4.5vw, 44px);
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.section-body {
-  font-size: 15px;
-  color: var(--text2);
-  text-align: center;
-  max-width: 500px;
-  margin: 0 auto 48px;
-  line-height: 1.85;
-}
+.section-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); text-align: center; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.section-label::before, .section-label::after { content: ''; width: 22px; height: 1px; background: var(--rose-light); }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4.5vw, 44px); font-weight: 700; line-height: 1.2; text-align: center; margin-bottom: 16px; letter-spacing: -0.02em; color: var(--text); }
+.section-body { font-size: 15px; color: var(--text2); text-align: center; max-width: 500px; margin: 0 auto 48px; line-height: 1.85; }
 
 /* ABOUT EVE TOP */
-.eve-authority {
-  padding: 80px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.eve-authority-img {
-  width: 140px; height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-  border: 3px solid var(--rose-light);
-  box-shadow: 0 4px 32px var(--rose-glow);
-}
-.eve-authority-name {
-  margin-top: 14px;
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--rose);
-}
+.eve-authority { padding: 80px 0 0; display: flex; flex-direction: column; align-items: center; }
+.eve-authority-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--rose-light); box-shadow: 0 4px 32px var(--rose-glow); }
+.eve-authority-name { margin-top: 14px; font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--rose); }
 
 /* MEDIA GALLERY */
-.midia {
-  padding: 88px 0;
-  border-top: 1px solid var(--border);
-}
-
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  max-width: 740px;
-  margin: 0 auto;
-}
-.media-grid img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  display: block;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.media-grid img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--rose-glow);
-}
+.midia { padding: 88px 0; border-top: 1px solid var(--border); }
+.media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 740px; margin: 0 auto; }
+.media-grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); display: block; transition: transform 0.3s, box-shadow 0.3s; }
+.media-grid img:hover { transform: translateY(-4px); box-shadow: 0 12px 40px var(--rose-glow); }
 
 /* PROBLEMA */
-.problema {
-  padding: 88px 0;
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.problema-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px;
-  margin-top: 48px;
-}
-
-.prob-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px 20px;
-  text-align: center;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.prob-card:hover {
-  box-shadow: 0 8px 32px var(--rose-glow);
-  transform: translateY(-2px);
-}
-
+.problema { padding: 88px 0; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.problema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 48px; }
+.prob-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px 20px; text-align: center; transition: box-shadow 0.2s, transform 0.2s; }
+.prob-card:hover { box-shadow: 0 8px 32px var(--rose-glow); transform: translateY(-2px); }
 .prob-emoji { font-size: 26px; margin-bottom: 12px; display: block; }
-
-.prob-card p {
-  font-size: 13.5px;
-  color: var(--text2);
-  line-height: 1.7;
-}
+.prob-card p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
 
 /* APRENDE */
-.aprende {
-  padding: 88px 0;
-  border-top: 1px solid var(--border);
-}
-
-.aprende-list {
-  display: flex;
-  flex-direction: column;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.aprende-item {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 16px;
-  align-items: start;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-}
+.aprende { padding: 88px 0; border-top: 1px solid var(--border); }
+.aprende-list { display: flex; flex-direction: column; max-width: 640px; margin: 0 auto; }
+.aprende-item { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--border); }
 .aprende-item:last-child { border-bottom: none; }
-
-.aprende-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--rose);
-  padding-top: 3px;
-  letter-spacing: 0.05em;
-}
-
-.aprende-content h4 {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  color: var(--text);
-}
-.aprende-content p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.7;
-}
+.aprende-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--rose); padding-top: 3px; letter-spacing: 0.05em; }
+.aprende-content h4 { font-size: 16px; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+.aprende-content p { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
 /* PARA QUEM */
 .paraquem { padding: 88px 0; background: var(--bg2); }
-
-.paraquem-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.pq-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px 16px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  transition: box-shadow 0.2s;
-}
+.paraquem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 700px; margin: 0 auto; }
+.pq-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; display: flex; gap: 10px; align-items: flex-start; transition: box-shadow 0.2s; }
 .pq-card:hover { box-shadow: 0 4px 20px var(--rose-glow); }
-
-.pq-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--rose);
-  flex-shrink: 0;
-  margin-top: 8px;
-}
-
-.pq-card p {
-  font-size: 13.5px;
-  color: var(--text2);
-  line-height: 1.65;
-}
+.pq-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); flex-shrink: 0; margin-top: 8px; }
+.pq-card p { font-size: 13.5px; color: var(--text2); line-height: 1.65; }
 
 /* SOBRE EVE */
-.sobre {
-  padding: 88px 0;
-  background: var(--bg3);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.sobre-inner {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 52px;
-  align-items: center;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.sobre-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.sobre-avatar {
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(212,96,122,0.25);
-  box-shadow: 0 4px 32px var(--rose-glow);
-}
-.sobre-avatar img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.sobre-handle {
-  font-size: 12px;
-  color: var(--rose);
-  letter-spacing: 0.06em;
-}
-
-.sobre-text h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  line-height: 1.3;
-  color: var(--text);
-}
-
-.sobre-text p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.9;
-  margin-bottom: 14px;
-}
+.sobre { padding: 88px 0; background: var(--bg3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.sobre-inner { display: grid; grid-template-columns: 200px 1fr; gap: 52px; align-items: center; max-width: 760px; margin: 0 auto; }
+.sobre-visual { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.sobre-avatar { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(212,96,122,0.25); box-shadow: 0 4px 32px var(--rose-glow); }
+.sobre-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.sobre-handle { font-size: 12px; color: var(--rose); letter-spacing: 0.06em; }
+.sobre-text h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.3; color: var(--text); }
+.sobre-text p { font-size: 14px; color: var(--text2); line-height: 1.9; margin-bottom: 14px; }
 .sobre-text p strong { color: var(--text); font-weight: 500; }
 
 /* CONFIANÇA */
-.confianca {
-  padding: 88px 0;
-  background: white;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.confianca-box {
-  max-width: 640px;
-  margin: 0 auto;
-  background: var(--rose-pale);
-  border: 1px solid rgba(212,96,122,0.2);
-  border-radius: 16px;
-  padding: 44px 40px;
-  text-align: center;
-}
-
-.confianca-box h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  margin-bottom: 16px;
-  color: var(--rose);
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.confianca-box p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.9;
-  margin-bottom: 12px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-}
+.confianca { padding: 88px 0; background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.confianca-box { max-width: 640px; margin: 0 auto; background: var(--rose-pale); border: 1px solid rgba(212,96,122,0.2); border-radius: 16px; padding: 44px 40px; text-align: center; }
+.confianca-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 16px; color: var(--rose); font-weight: 700; line-height: 1.3; }
+.confianca-box p { font-size: 14px; color: var(--text2); line-height: 1.9; margin-bottom: 12px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .confianca-box p strong { color: var(--text); font-weight: 500; }
-
-.trust-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.trust-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  color: var(--rose);
-  background: white;
-  border: 1px solid rgba(212,96,122,0.22);
-  padding: 6px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.03em;
-}
+.trust-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 24px; }
+.trust-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--rose); background: white; border: 1px solid rgba(212,96,122,0.22); padding: 6px 14px; border-radius: 20px; letter-spacing: 0.03em; }
 
 /* COMPRA */
-.compra {
-  padding: 100px 0 80px;
-  text-align: center;
-  background: var(--bg2);
-  position: relative;
-  overflow: hidden;
-}
-
-.compra-glow {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px; height: 400px;
-  background: radial-gradient(ellipse, rgba(212,96,122,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.price-box {
-  max-width: 440px;
-  margin: 0 auto 40px;
-  background: white;
-  border: 1px solid rgba(212,96,122,0.2);
-  border-radius: 20px;
-  padding: 44px 36px;
-  position: relative;
-  box-shadow: 0 8px 48px var(--rose-glow);
-}
-
-.price-badge {
-  position: absolute;
-  top: -14px; left: 50%;
-  transform: translateX(-50%);
-  background: var(--rose);
-  color: white;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 5px 18px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-
-.price-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 21px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  font-style: italic;
-  color: var(--text);
-}
-
-.price-subtitle {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
+.compra { padding: 100px 0 80px; text-align: center; background: var(--bg2); position: relative; overflow: hidden; }
+.compra-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(212,96,122,0.08) 0%, transparent 70%); pointer-events: none; }
+.price-box { max-width: 440px; margin: 0 auto 40px; background: white; border: 1px solid rgba(212,96,122,0.2); border-radius: 20px; padding: 44px 36px; position: relative; box-shadow: 0 8px 48px var(--rose-glow); }
+.price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--rose); color: white; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 18px; border-radius: 20px; white-space: nowrap; }
+.price-title { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 700; margin-bottom: 6px; font-style: italic; color: var(--text); }
+.price-subtitle { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; }
 .price-value { margin-bottom: 28px; }
-
-.price-from {
-  font-size: 13px;
-  color: var(--muted);
-  text-decoration: line-through;
-  margin-bottom: 4px;
-}
-
-.price-main {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  font-weight: 900;
-  color: var(--rose);
-  line-height: 1;
-}
-.price-main sup {
-  font-size: 22px;
-  vertical-align: super;
-  font-weight: 400;
-  margin-right: 2px;
-}
-
-.price-desc {
-  font-size: 12px;
-  color: var(--gold);
-  margin-top: 6px;
-}
-
-.price-includes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 32px;
-  text-align: left;
-}
-
-.inc-item {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 13.5px;
-  color: var(--text2);
-}
+.price-from { font-size: 13px; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+.price-main { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--rose); line-height: 1; }
+.price-main sup { font-size: 22px; vertical-align: super; font-weight: 400; margin-right: 2px; }
+.price-desc { font-size: 12px; color: var(--gold); margin-top: 6px; }
+.price-includes { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; text-align: left; }
+.inc-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--text2); }
 .inc-check { color: var(--rose); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
-
-.compra-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 16px 0;
-}
-.compra-divider span {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-.compra-divider::before, .compra-divider::after {
-  content: '';
-  flex: 1; height: 1px;
-  background: var(--border);
-}
-
-.wpp-note {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 10px;
-  line-height: 1.75;
-}
-
-.guarantee-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 28px;
-  font-size: 11.5px;
-  color: var(--muted);
-}
+.compra-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.compra-divider span { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
+.compra-divider::before, .compra-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.wpp-note { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.75; }
+.guarantee-strip { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 28px; font-size: 11.5px; color: var(--muted); }
 
 /* FAQ */
-.faq {
-  padding: 88px 0;
-  background: white;
-  border-top: 1px solid var(--border);
-}
-
-.faq-list {
-  max-width: 620px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
+.faq { padding: 88px 0; background: white; border-top: 1px solid var(--border); }
+.faq-list { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; }
 .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
 .faq-q { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
 .faq-a { font-size: 13.5px; color: var(--text2); line-height: 1.85; }
 .faq-a strong { color: var(--text); font-weight: 500; }
 
 /* FOOTER */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 24px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--bg2);
-}
+footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; font-size: 12px; color: var(--muted); background: var(--bg2); }
 footer strong { color: var(--rose); font-weight: 500; }
 
 /* ANIMATIONS */
@@ -931,7 +319,7 @@ footer strong { color: var(--rose); font-weight: 500; }
       <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Falar com a Eve antes de comprar
     </a>
-    <span class="btn-label-small" data-pt="Tem dúvida? A Eve responde pessoalmente no WhatsApp." data-en="Any questions? Eve replies personally on WhatsApp.">Tem dúvida? A Eve responde pessoalmente no WhatsApp.</span>
+    <span class="btn-label-small" data-pt="Tem dúvida? Eu respondo pessoalmente no WhatsApp." data-en="Any questions? I reply personally on WhatsApp.">Tem dúvida? Eu respondo pessoalmente no WhatsApp.</span>
   </div>
 </section>
 
@@ -939,8 +327,8 @@ footer strong { color: var(--rose); font-weight: 500; }
 <section class="midia">
   <div class="container">
     <div class="section-label" data-pt="Bastidores e exemplos reais" data-en="Behind the scenes and real examples">Bastidores e exemplos reais</div>
-    <h2 class="section-title" data-pt="Como é o conteúdo na prática" data-en="What the content looks like in practice">Como é o conteúdo na prática</h2>
-    <p class="section-body" data-pt="Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios." data-en="Not a studio ad. It's a real review, filmed the right way, the kind brands actually use in their campaigns.">Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios.</p>
+    <h2 class="section-title" data-pt="Como é o meu conteúdo na prática" data-en="What my content looks like in practice">Como é o meu conteúdo na prática</h2>
+    <p class="section-body" data-pt="Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios. Já trabalhei com Dove, Pantene e outras." data-en="Not a studio ad. It's a real review, filmed the right way, the kind brands actually use in their campaigns. I've worked with Dove, Pantene and more.">Não é anúncio de estúdio. É review real, gravado do jeito certo, que as marcas usam nos anúncios. Já trabalhei com Dove, Pantene e outras.</p>
 
     <div class="media-grid">
       <img src="https://res.cloudinary.com/dcbarseus/image/upload/v1779140391/01_mqjqma.png" alt="Eve UGC 1">
@@ -992,7 +380,7 @@ footer strong { color: var(--rose); font-weight: 500; }
 <section class="aprende">
   <div class="container">
     <div class="section-label" data-pt="Conteúdo do e-book" data-en="What's inside">Conteúdo do e-book</div>
-    <h2 class="section-title" data-pt="O que tem dentro" data-en="What's included">O que tem dentro</h2>
+    <h2 class="section-title" data-pt="O que eu coloquei dentro" data-en="What I put inside">O que eu coloquei dentro</h2>
     <p class="section-body" data-pt="Tudo aqui pode ser colocado em prática imediatamente. Sem teoria inútil, sem enrolação." data-en="Everything here is ready to put into practice immediately. No useless theory, no fluff.">Tudo aqui pode ser colocado em prática imediatamente. Sem teoria inútil, sem enrolação.</p>
 
     <div class="aprende-list">
@@ -1097,9 +485,9 @@ footer strong { color: var(--rose); font-weight: 500; }
 
       <div class="sobre-text">
         <h3 data-pt="Quem escreveu isso?" data-en="Who wrote this?">Quem escreveu isso?</h3>
-        <p data-pt="Sou a Evelyn, UGC Creator na área de beleza. Não vim de agência, não tenho formação em marketing e <strong>não tinha muitos seguidores quando comecei a entender esse mercado.</strong>" data-en="I'm Evelyn, a UGC Creator in the beauty space. I didn't come from an agency, I don't have a marketing degree, and <strong>I didn't have a big following when I started figuring out this market.</strong>">Sou a Evelyn, UGC Creator na área de beleza. Não vim de agência, não tenho formação em marketing e <strong>não tinha muitos seguidores quando comecei a entender esse mercado.</strong></p>
-        <p data-pt="O que eu fiz foi absorver cada informação que encontrava e organizar. Esse e-book é o que eu gostaria de ter encontrado quando comecei: <strong>uma pessoa real explicando o processo real, sem inflar o resultado.</strong>" data-en="What I did was absorb every bit of information I found and organize it. This e-book is what I wish I'd found when I started: <strong>a real person explaining the real process, without inflating the results.</strong>">O que eu fiz foi absorver cada informação que encontrava e organizar. Esse e-book é o que eu gostaria de ter encontrado quando comecei: <strong>uma pessoa real explicando o processo real, sem inflar o resultado.</strong></p>
-        <p data-pt="Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui." data-en="I'm not here to come across as an expert. I'm here to help you move faster than I did.">Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui.</p>
+        <p data-pt="Sou a Evelyn, tenho 24 anos e sou UGC Creator na área de beleza, moda e lifestyle. Comecei há mais de um ano trabalhando com campanhas UGC e fui mergulhando de cabeça no mundo criativo digital. Já trabalhei com marcas como <strong>Dove e Pantene</strong> e faço parte de uma agência de influencers desde novembro." data-en="I'm Evelyn, 24 years old and a UGC Creator in beauty, fashion and lifestyle. I started working with UGC campaigns over a year ago and dove headfirst into the creative digital world. I've worked with brands like <strong>Dove and Pantene</strong> and have been part of an influencer agency since November.">Sou a Evelyn, tenho 24 anos e sou UGC Creator na área de beleza, moda e lifestyle. Comecei há mais de um ano trabalhando com campanhas UGC e fui mergulhando de cabeça no mundo criativo digital. Já trabalhei com marcas como <strong>Dove e Pantene</strong> e faço parte de uma agência de influencers desde novembro.</p>
+        <p data-pt="Não vim de agência de publicidade, mas fiz um cursinho de marketing de storytelling pelo Santander que foi um divisor de água na forma como eu planejo e executo conteúdo. É isso que está por trás de tudo que escrevi nesse e-book: <strong>uma abordagem leve, autêntica, com intenção comunicativa de verdade.</strong>" data-en="I didn't come from an advertising agency, but I did a marketing storytelling course through Santander that was a real turning point in how I plan and execute content. That's what's behind everything I wrote in this e-book: <strong>a light, authentic approach with real communicative intent.</strong>">Não vim de agência de publicidade, mas fiz um cursinho de marketing de storytelling pelo Santander que foi um divisor de água na forma como eu planejo e executo conteúdo. É isso que está por trás de tudo que escrevi nesse e-book: <strong>uma abordagem leve, autêntica, com intenção comunicativa de verdade.</strong></p>
+        <p data-pt="Escrevi o que eu gostaria de ter encontrado quando comecei. Uma pessoa real explicando o processo real, sem inflar o resultado. Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui." data-en="I wrote what I wish I'd found when I started. A real person explaining the real process, without inflating results. I'm not here to come across as an expert. I'm here to help you move faster than I did.">Escrevi o que eu gostaria de ter encontrado quando comecei. Uma pessoa real explicando o processo real, sem inflar o resultado. Não estou aqui pra parecer especialista. Estou aqui pra te ajudar a ir mais rápido do que eu fui.</p>
       </div>
     </div>
   </div>
@@ -1112,7 +500,7 @@ footer strong { color: var(--rose); font-weight: 500; }
     <h2 class="section-title" data-pt="Como funciona a compra" data-en="How the purchase works">Como funciona a compra</h2>
 
     <div class="confianca-box">
-      <h3 data-pt="Quero deixar o processo claro" data-en="I want to make the process clear">Quero deixar o processo claro</h3>
+      <h3 data-pt="Quero deixar o processo claro pra você" data-en="I want to make the process clear for you">Quero deixar o processo claro pra você</h3>
       <p data-pt="A internet tem muito golpe, eu sei disso, você sabe também. Por isso ofereço duas formas de compra: pela Hotmart (plataforma usada por milhões de criadores no Brasil, com pagamento criptografado e nota fiscal) ou pelo meu WhatsApp pessoal, onde você fala comigo diretamente antes de qualquer pagamento." data-en="The internet has a lot of scams, I know that, and so do you. That's why I offer two ways to buy: through Hotmart (a platform used by millions of creators in Brazil, with encrypted payment and invoice) or through my personal WhatsApp, where you talk to me directly before any payment.">A internet tem muito golpe, eu sei disso, você sabe também. Por isso ofereço duas formas de compra: pela Hotmart (plataforma usada por milhões de criadores no Brasil, com pagamento criptografado e nota fiscal) ou pelo meu WhatsApp pessoal, onde você fala comigo diretamente antes de qualquer pagamento.</p>
       <p data-pt="<strong>Nenhuma opção envolve Pix para desconhecido.</strong> Tudo dentro de plataformas reguladas ou com contato direto e verificável. O produto chega no mesmo momento da confirmação." data-en="<strong>No option involves Pix to a stranger.</strong> Everything is within regulated platforms or with direct, verifiable contact. The product arrives the moment payment is confirmed."><strong>Nenhuma opção envolve Pix para desconhecido.</strong> Tudo dentro de plataformas reguladas ou com contato direto e verificável. O produto chega no mesmo momento da confirmação.</p>
 
@@ -1120,7 +508,7 @@ footer strong { color: var(--rose); font-weight: 500; }
         <span class="trust-pill" data-pt="Hotmart, plataforma regulada" data-en="Hotmart, regulated platform">Hotmart, plataforma regulada</span>
         <span class="trust-pill" data-pt="Pagamento criptografado" data-en="Encrypted payment">Pagamento criptografado</span>
         <span class="trust-pill" data-pt="Nota fiscal emitida" data-en="Invoice included">Nota fiscal emitida</span>
-        <span class="trust-pill" data-pt="Eve responde no WhatsApp" data-en="Eve replies on WhatsApp">Eve responde no WhatsApp</span>
+        <span class="trust-pill" data-pt="Respondo no WhatsApp pessoalmente" data-en="I reply on WhatsApp personally">Respondo no WhatsApp pessoalmente</span>
         <span class="trust-pill" data-pt="PDF entregue na hora" data-en="PDF delivered instantly">PDF entregue na hora</span>
       </div>
     </div>
@@ -1190,7 +578,7 @@ footer strong { color: var(--rose); font-weight: 500; }
     <div class="faq-list">
       <div class="faq-item">
         <p class="faq-q" data-pt="Como recebo o e-book depois da compra?" data-en="How do I receive the e-book after purchase?">Como recebo o e-book depois da compra?</p>
-        <p class="faq-a" data-pt="Se comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong>" data-en="If you buy through Hotmart, access arrives in your email as soon as payment is confirmed, it's automatic. If you buy via WhatsApp, I'll send the file directly in the chat. <strong>Fast and simple.</strong>">Se comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong></p>
+        <p class="faq-a" data-pt="Se você comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong>" data-en="If you buy through Hotmart, access arrives in your email as soon as payment is confirmed, it's automatic. If you buy via WhatsApp, I'll send the file directly in the chat. <strong>Fast and simple.</strong>">Se você comprar pela Hotmart, o acesso chega no seu e-mail assim que o pagamento confirmar, é automático. Se comprar via WhatsApp, eu envio o arquivo diretamente na conversa. <strong>Rápido e simples.</strong></p>
       </div>
       <div class="faq-item">
         <p class="faq-q" data-pt="É seguro pagar pela Hotmart?" data-en="Is it safe to pay through Hotmart?">É seguro pagar pela Hotmart?</p>
@@ -1198,11 +586,11 @@ footer strong { color: var(--rose); font-weight: 500; }
       </div>
       <div class="faq-item">
         <p class="faq-q" data-pt="Prefiro falar com a Eve antes de comprar. Posso?" data-en="I'd prefer to talk to Eve before buying. Can I?">Prefiro falar com a Eve antes de comprar. Posso?</p>
-        <p class="faq-a" data-pt="Claro. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong>" data-en="Of course. Just click the WhatsApp button. I'll reply personally, explain everything about the content, and answer any questions, with zero obligation to buy. <strong>No pressure.</strong>">Claro. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong></p>
+        <p class="faq-a" data-pt="Claro, pode sim. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong>" data-en="Of course. Just click the WhatsApp button. I'll reply personally, explain everything about the content, and answer any questions, with zero obligation to buy. <strong>No pressure.</strong>">Claro, pode sim. Só clicar no botão do WhatsApp. Eu respondo pessoalmente, explico tudo sobre o conteúdo e tiro qualquer dúvida, sem nenhuma obrigação de compra. <strong>Sem pressão.</strong></p>
       </div>
       <div class="faq-item">
         <p class="faq-q" data-pt="Preciso ter experiência com criação de conteúdo?" data-en="Do I need experience with content creation?">Preciso ter experiência com criação de conteúdo?</p>
-        <p class="faq-a" data-pt="Não. O e-book foi escrito pra quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong>" data-en="No. The e-book was written for people starting from zero. If you've never filmed a video for a brand, <strong>this is the starting point.</strong>">Não. O e-book foi escrito pra quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong></p>
+        <p class="faq-a" data-pt="Não precisa. Escrevi pensando em quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong>" data-en="No. I wrote this for people starting from zero. If you've never filmed a video for a brand, <strong>this is the starting point.</strong>">Não precisa. Escrevi pensando em quem está começando do zero. Se você nunca gravou um vídeo pra marca nenhuma, <strong>esse é o ponto de partida.</strong></p>
       </div>
       <div class="faq-item">
         <p class="faq-q" data-pt="E se eu não tiver muitos seguidores?" data-en="What if I don't have many followers?">E se eu não tiver muitos seguidores?</p>
@@ -1210,7 +598,7 @@ footer strong { color: var(--rose); font-weight: 500; }
       </div>
       <div class="faq-item">
         <p class="faq-q" data-pt="O conteúdo é só para beleza?" data-en="Is the content only for the beauty niche?">O conteúdo é só para beleza?</p>
-        <p class="faq-a" data-pt="O foco é beleza e cosméticos, que é o nicho da Eve. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza." data-en="The focus is beauty and cosmetics, which is Eve's niche. But the UGC principles (portfolio, outreach, pricing) <strong>work for other niches too.</strong> All examples and references are from the beauty space.">O foco é beleza e cosméticos, que é o nicho da Eve. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza.</p>
+        <p class="faq-a" data-pt="O foco é beleza e cosméticos, que é o meu nicho principal. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza." data-en="The focus is beauty and cosmetics, which is my main niche. But the UGC principles (portfolio, outreach, pricing) <strong>work for other niches too.</strong> All examples and references are from the beauty space.">O foco é beleza e cosméticos, que é o meu nicho principal. Mas os princípios de UGC (portfólio, abordagem, precificação) <strong>funcionam para outros nichos também.</strong> Os exemplos e referências são todos da área de beleza.</p>
       </div>
     </div>
   </div>
@@ -1228,12 +616,10 @@ footer strong { color: var(--rose); font-weight: 500; }
 </footer>
 
 <script>
-// ── LANGUAGE SYSTEM ──────────────────────────────────────────────
 let currentLang = 'pt';
 
 function setLang(lang) {
   if (lang === currentLang) return;
-
   const overlay = document.getElementById('lang-overlay');
   const overlayText = document.getElementById('overlay-text');
   const overlaySub = document.getElementById('overlay-sub');
@@ -1250,7 +636,6 @@ function setLang(lang) {
   fill.style.animation = 'none';
   fill.offsetHeight;
   fill.style.animation = 'fillBar 1.8s 0.5s ease forwards';
-
   overlay.classList.add('show');
 
   setTimeout(() => {
@@ -1274,4 +659,4 @@ function applyLang(lang) {
 }
 </script>
 </body>
-    </html>
+</html>
