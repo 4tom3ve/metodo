@@ -129,8 +129,41 @@ section { position: relative; z-index: 1; }
 .hero h1 em { font-style: italic; color: var(--rose); display: block; }
 .hero-sub { font-size: clamp(15px, 2.5vw, 18px); color: var(--text2); max-width: 520px; margin: 0 auto 36px; font-weight: 300; line-height: 1.8; }
 .hero-sub strong { color: var(--text); font-weight: 500; }
-.hero-video-wrap { width: 100%; max-width: 560px; margin: 0 auto 40px; position: relative; }
-.hero-video-wrap video { width: 100%; border-radius: 16px; border: 1px solid var(--border-dark); box-shadow: 0 8px 48px rgba(212,96,122,0.12); display: block; background: var(--bg2); }
+
+/* HERO VIDEO — Pantene featured */
+.hero-video-wrap {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+.hero-video-wrap video {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 8px 48px rgba(212,96,122,0.18);
+  display: block;
+  background: var(--bg2);
+  aspect-ratio: 9/16;
+  object-fit: cover;
+}
+.hero-video-brand-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(253,251,249,0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--rose);
+  white-space: nowrap;
+  pointer-events: none;
+}
 
 /* BUTTONS */
 .hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; }
@@ -150,6 +183,106 @@ section { position: relative; z-index: 1; }
 .eve-authority { padding: 80px 0 0; display: flex; flex-direction: column; align-items: center; }
 .eve-authority-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--rose-light); box-shadow: 0 4px 32px var(--rose-glow); }
 .eve-authority-name { margin-top: 14px; font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--rose); }
+
+/* ===== VIDEO GALLERY SECTION ===== */
+.video-gallery {
+  padding: 88px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.video-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.vg-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+/* Staggered heights for visual rhythm */
+.vg-card:nth-child(2) { margin-top: 28px; }
+
+.vg-video-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 6px 32px rgba(212,96,122,0.10);
+  background: var(--bg2);
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.vg-video-wrap:hover {
+  box-shadow: 0 14px 48px rgba(212,96,122,0.22);
+  transform: translateY(-4px);
+}
+
+.vg-video-wrap video {
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play overlay */
+.vg-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,10,14,0.18);
+  transition: background 0.25s;
+  pointer-events: none;
+}
+.vg-video-wrap.playing .vg-play-overlay,
+.vg-video-wrap:hover .vg-play-overlay { background: transparent; }
+
+.vg-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(253,251,249,0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+.vg-video-wrap.playing .vg-play-btn { opacity: 0; transform: scale(0.8); }
+.vg-play-btn svg { color: var(--rose); margin-left: 3px; }
+
+/* Brand pill on video */
+.vg-brand-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(253,251,249,0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rose);
+  pointer-events: none;
+}
+
+/* Card text */
+.vg-meta { text-align: center; }
+.vg-brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; font-style: italic; color: var(--text); margin-bottom: 3px; }
+.vg-type { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
 /* MEDIA GALLERY */
 .midia { padding: 88px 0; border-top: 1px solid var(--border); }
@@ -259,6 +392,9 @@ footer strong { color: var(--rose); font-weight: 500; }
   .price-main { font-size: 44px; }
   .media-grid { grid-template-columns: repeat(2, 1fr); }
   .lang-btn { padding: 6px 10px; }
+  .video-gallery-grid { grid-template-columns: 1fr; gap: 24px; max-width: 280px; }
+  .vg-card:nth-child(2) { margin-top: 0; }
+  .hero-video-wrap { max-width: 260px; }
 }
 </style>
 </head>
@@ -311,6 +447,14 @@ footer strong { color: var(--rose); font-weight: 500; }
     <strong>Sem precisar de seguidores, câmera profissional ou experiência anterior.</strong>
   </p>
 
+  <!-- HERO VIDEO: Pantene — o mais visual/impactante como vitrine -->
+  <div class="hero-video-wrap">
+    <video src="https://res.cloudinary.com/dcbarseus/video/upload/v1780447422/VID-20260602-WA0011_ahqupt.mp4"
+           autoplay muted loop playsinline
+           preload="metadata"></video>
+    <span class="hero-video-brand-tag">✦ Pantene · UGC real</span>
+  </div>
+
   <div class="hero-cta-group">
     <a href="https://pay.hotmart.com/B105879511Y?sck=HOTMART_PRODUCT_PAGE&off=9yrzldqn&hotfeature=32" target="_blank" class="btn-primary" data-pt="Quero o e-book agora" data-en="Get the e-book now">
       Quero o e-book agora
@@ -323,7 +467,74 @@ footer strong { color: var(--rose); font-weight: 500; }
   </div>
 </section>
 
-<!-- GALERIA -->
+<!-- ===== VIDEO GALLERY: 3 UGC REAIS ===== -->
+<section class="video-gallery">
+  <div class="container">
+    <div class="section-label" data-pt="Campanhas reais · Marcas reais" data-en="Real campaigns · Real brands">Campanhas reais · Marcas reais</div>
+    <h2 class="section-title" data-pt="É exatamente isso que você vai aprender a fazer" data-en="This is exactly what you'll learn to create">É exatamente isso que você vai aprender a fazer</h2>
+    <p class="section-body" data-pt="Esses são vídeos meus de UGC entregues para marcas. Gravados com celular, sem estúdio, com a técnica que ensino no e-book." data-en="These are my actual UGC videos delivered to brands. Shot on a phone, no studio, using the same technique I teach in the e-book.">Esses são vídeos meus de UGC entregues para marcas. Gravados com celular, sem estúdio, com a técnica que ensino no e-book.</p>
+
+    <div class="video-gallery-grid">
+
+      <!-- Dove -->
+      <div class="vg-card">
+        <div class="vg-video-wrap" onclick="toggleVideo(this)">
+          <video src="https://res.cloudinary.com/dcbarseus/video/upload/v1780447429/VID-20260602-WA0012_yfoctz.mp4"
+                 muted playsinline preload="metadata" loop></video>
+          <div class="vg-play-overlay">
+            <div class="vg-play-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+          <span class="vg-brand-pill">Dove</span>
+        </div>
+        <div class="vg-meta">
+          <p class="vg-brand">Dove</p>
+          <p class="vg-type" data-pt="Review · Cuidados com o cabelo" data-en="Review · Hair care">Review · Cuidados com o cabelo</p>
+        </div>
+      </div>
+
+      <!-- Mentos -->
+      <div class="vg-card">
+        <div class="vg-video-wrap" onclick="toggleVideo(this)">
+          <video src="https://res.cloudinary.com/dcbarseus/video/upload/v1780447426/VID-20260602-WA0013_term11.mp4"
+                 muted playsinline preload="metadata" loop></video>
+          <div class="vg-play-overlay">
+            <div class="vg-play-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+          <span class="vg-brand-pill">Mentos</span>
+        </div>
+        <div class="vg-meta">
+          <p class="vg-brand">Mentos</p>
+          <p class="vg-type" data-pt="Lifestyle · Conteúdo criativo" data-en="Lifestyle · Creative content">Lifestyle · Conteúdo criativo</p>
+        </div>
+      </div>
+
+      <!-- Pantene -->
+      <div class="vg-card">
+        <div class="vg-video-wrap" onclick="toggleVideo(this)">
+          <video src="https://res.cloudinary.com/dcbarseus/video/upload/v1780447422/VID-20260602-WA0011_ahqupt.mp4"
+                 muted playsinline preload="metadata" loop></video>
+          <div class="vg-play-overlay">
+            <div class="vg-play-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+          <span class="vg-brand-pill">Pantene</span>
+        </div>
+        <div class="vg-meta">
+          <p class="vg-brand">Pantene</p>
+          <p class="vg-type" data-pt="Review · Tratamento capilar" data-en="Review · Hair treatment">Review · Tratamento capilar</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA DE FOTOS -->
 <section class="midia">
   <div class="container">
     <div class="section-label" data-pt="Bastidores e exemplos reais" data-en="Behind the scenes and real examples">Bastidores e exemplos reais</div>
@@ -656,6 +867,27 @@ function applyLang(lang) {
   document.title = lang === 'pt'
     ? 'UGC Do Zero ao Contrato — Evelyn Oliveira @4tom3ve'
     : 'UGC From Zero to the Deal — Evelyn Oliveira @4tom3ve';
+}
+
+// Video toggle: play/pause on click, pause others
+function toggleVideo(wrap) {
+  const video = wrap.querySelector('video');
+  const allWraps = document.querySelectorAll('.vg-video-wrap');
+
+  if (video.paused) {
+    // Pause all others
+    allWraps.forEach(w => {
+      if (w !== wrap) {
+        w.querySelector('video').pause();
+        w.classList.remove('playing');
+      }
+    });
+    video.play();
+    wrap.classList.add('playing');
+  } else {
+    video.pause();
+    wrap.classList.remove('playing');
+  }
 }
 </script>
 </body>
